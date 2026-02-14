@@ -21,12 +21,16 @@ let infos = {
   width: '20px',
   heigth: '20 px',
 }
+
+function afficherMessage(msg) {
+  console.log(msg)
+}
 </script>
 
 <template>
   <h4>Je suis le First Component</h4>
 
-  <Second :prenom="prenom" :annee="'2026'"></Second>
+  <Second @eventToFirst="afficherMessage($event)" :prenom="prenom" :annee="'2026'"></Second>
 
   <hr />
 
@@ -54,3 +58,5 @@ let infos = {
 
   <input @keyup.space="console.log('touche tapée')" type="text" class="form-control" />
 </template>
+
+<style></style>
