@@ -1,4 +1,5 @@
 <script setup>
+import ExempleReact from './components/ExempleReact.vue'
 import First from './components/First.vue'
 import Cv from './project/Cv.vue'
 </script>
@@ -9,6 +10,7 @@ import Cv from './project/Cv.vue'
   <First></First> -->
   <div class="container">
     <Cv></Cv>
+    <ExempleReact></ExempleReact>
   </div>
 </template>
 

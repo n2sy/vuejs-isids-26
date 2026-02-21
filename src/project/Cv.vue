@@ -7,12 +7,14 @@ import { ref } from 'vue'
 let tabCandidats = [
   new Candidat(1, 'bart', 'simpson', 28, 'ingénieur', 'bart.jpeg'),
   new Candidat(2, 'homer', 'simpson', 53, 'chef de projet', 'homer.png'),
-  new Candidat(1, 'lisa', 'simpson', 22, 'designer', 'lisa.png'),
+  new Candidat(3, 'lisa', 'simpson', 22, 'designer', 'lisa.png'),
 ]
 
-let selectedCandidate = ref()
+let selectedCandidate = ref(null)
+// let selectedCandidate
 
 function recupererCandidat(cand) {
+  //   selectedCandidate = cand
   selectedCandidate.value = cand
   console.log(selectedCandidate)
 }
@@ -25,7 +27,8 @@ function recupererCandidat(cand) {
       <Liste @eventToCv="recupererCandidat($event)" :allCandidates="tabCandidats"></Liste>
     </div>
     <div class="col-7">
-      <Details :selCandidate="selectedCandidate"></Details>
+      <Details v-if="selectedCandidate" :selCandidate="selectedCandidate"></Details>
+      <p v-else>Veuillez cliquer sur un candidat...</p>
     </div>
   </div>
 </template>
