@@ -6,8 +6,15 @@ defineEmits(['eventToCv'])
 
 <template>
   <ol class="list-group">
-    <Item @eventToListe="$emit('eventToCv', $event)" :oneCandidate="allCandidates[0]"></Item>
+    <Item
+      v-for="(cand, index) in allCandidates"
+      @eventToListe="$emit('eventToCv', $event)"
+      :oneCandidate="cand"
+    >
+    </Item>
+
+    <!-- <Item @eventToListe="$emit('eventToCv', $event)" :oneCandidate="allCandidates[0]"></Item>
     <Item @eventToListe="$emit('eventToCv', $event)" :oneCandidate="allCandidates[1]"></Item>
-    <Item @eventToListe="$emit('eventToCv', $event)" :oneCandidate="allCandidates[2]"></Item>
+    <Item @eventToListe="$emit('eventToCv', $event)" :oneCandidate="allCandidates[2]"></Item> -->
   </ol>
 </template>

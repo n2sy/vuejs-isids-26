@@ -20,12 +20,22 @@ function updatePrenom() {
     age: 54,
   }
 }
+
+let afficher = ref(true)
+
+function toggleAfficher() {
+  afficher.value = !afficher.value
+}
 </script>
 
 <template>
-  <h4>Je m'appelle {{ prenom }} et j'ai {{ age }} ans !</h4>
+  <h4 v-once>Je m'appelle {{ prenom }} et j'ai {{ age }} ans !</h4>
+
+  <div v-show="afficher">Contenu du cours</div>
 
   <button class="btn btn-primary" @click="updatePrenom()">Update Prenom</button>
+  <button class="btn btn-primary" @click="toggleAfficher()">Affihcer/Cacher</button>
+  <hr />
 </template>
 
 <style></style>
