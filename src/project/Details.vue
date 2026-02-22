@@ -11,7 +11,7 @@ console.log(props)
           <img src="../../public/rotating_card_thumb2.png" />
         </div>
         <div class="user">
-          <img class="img-circle" src="../../public/{{ selCandidate?.avatar }}" />
+          <img class="img-circle" :src="selCandidate?.avatar" />
         </div>
         <div class="content">
           <div class="main">

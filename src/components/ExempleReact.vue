@@ -26,6 +26,12 @@ let afficher = ref(true)
 function toggleAfficher() {
   afficher.value = !afficher.value
 }
+
+// let tab = ref(['ayham', 'oumaima'])
+function changerPrenom(event) {
+  prenom = event.target.value
+  console.log(prenom)
+}
 </script>
 
 <template>
@@ -36,6 +42,9 @@ function toggleAfficher() {
   <button class="btn btn-primary" @click="updatePrenom()">Update Prenom</button>
   <button class="btn btn-primary" @click="toggleAfficher()">Affihcer/Cacher</button>
   <hr />
+  <input type="text" class="form-control" v-model="prenom" />
+  <hr />
+  <input type="text" class="form-control" :value="prenom" @change="changerPrenom($event)" />
 </template>
 
 <style></style>
