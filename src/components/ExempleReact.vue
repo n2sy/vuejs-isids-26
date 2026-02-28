@@ -35,7 +35,7 @@ function changerPrenom(event) {
 </script>
 
 <template>
-  <h4 v-once>Je m'appelle {{ prenom }} et j'ai {{ age }} ans !</h4>
+  <h4>Je m'appelle {{ prenom }} et j'ai {{ age }} ans !</h4>
 
   <div v-show="afficher">Contenu du cours</div>
 

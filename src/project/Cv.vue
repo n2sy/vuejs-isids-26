@@ -27,7 +27,8 @@ function recupererCandidat(cand) {
       <Liste @eventToCv="recupererCandidat($event)" :allCandidates="tabCandidats"></Liste>
     </div>
     <div class="col-7">
-      <Details v-if="selectedCandidate" :selCandidate="selectedCandidate"></Details>
+      <Details v-if="selectedCandidate" v-model="selectedCandidate"></Details>
+      <!-- <Details v-if="selectedCandidate" :selCandidate="selectedCandidate"></Details> -->
       <p v-else>Veuillez cliquer sur un candidat...</p>
     </div>
   </div>

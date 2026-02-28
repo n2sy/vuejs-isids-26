@@ -1,4 +1,5 @@
 <script setup>
+import { computed, ref } from 'vue'
 import Second from './Second.vue'
 
 let prenom = 'Adem'
@@ -25,10 +26,25 @@ let infos = {
 function afficherMessage(msg) {
   console.log(msg)
 }
+
+let message = ref('Message First')
+let year = ref(2026)
+
+let m1 = computed(() => {
+  return `Annee --- ${year.value}`
+})
 </script>
 
 <template>
   <h4>Je suis le First Component</h4>
+
+  <hr />
+  <p>{{ message }}</p>
+  <p>{{ year }}</p>
+  <hr />
+  <p>{{ m1 }}</p>
+
+  <button @click="year.value++" class="btn btn-danger">Change Year</button>
 
   <Second @eventToFirst="afficherMessage($event)" :prenom="prenom" :annee="'2026'"></Second>
 

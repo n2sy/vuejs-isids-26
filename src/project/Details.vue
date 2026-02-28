@@ -1,6 +1,9 @@
 <script setup>
-let props = defineProps(['selCandidate'])
-console.log(props)
+// let props = defineProps(['selCandidate'])
+// console.log(props)
+const selCandidate = defineModel({
+  required: true,
+})
 </script>
 
 <template>

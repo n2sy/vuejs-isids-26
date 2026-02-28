@@ -1,4 +1,5 @@
 <script setup>
+import HomeAccount from './components/accounts/HomeAccount.vue'
 import ExempleReact from './components/ExempleReact.vue'
 import First from './components/First.vue'
 import Cv from './project/Cv.vue'
@@ -9,8 +10,10 @@ import Cv from './project/Cv.vue'
   <hr />
   <First></First> -->
   <div class="container">
-    <Cv></Cv>
-    <ExempleReact></ExempleReact>
+    <!--  <Cv></Cv>
+   <ExempleReact></ExempleReact>
+    <First></First> -->
+    <HomeAccount></HomeAccount>
   </div>
 </template>
 
