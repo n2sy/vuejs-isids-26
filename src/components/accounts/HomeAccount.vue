@@ -1,5 +1,5 @@
 <script setup>
-import { reactive } from 'vue'
+import { computed, reactive } from 'vue'
 import AddAccount from './AddAccount.vue'
 import ItemAccount from './ItemAccount.vue'
 
@@ -26,23 +26,43 @@ let allAccounts = reactive([
   },
 ])
 
+function deleteAccount(acc) {
+  let i = allAccounts.indexOf(acc)
+  allAccounts.splice(i, 1)
+}
+
 let addAccount = function (newAcc) {
   console.log(newAcc)
 
   allAccounts.push(newAcc)
 }
 
-function deleteAccount(acc) {
-  let i = allAccounts.indexOf(acc)
-  allAccounts.splice(i, 1)
-}
+let totalActifs = computed(() => {
+  let total = 0
+  for (const account of allAccounts) {
+    if (account.status == 'active') total += account.solde
+  }
+  return total
+})
+let totalInactifs = computed(() => {
+  let total = 0
+  for (const account of allAccounts) {
+    if (account.status == 'inactive' || account.status == 'unknown') total += account.solde
+  }
+  return total
+})
 </script>
 <template>
   <AddAccount @sendAccToHome="addAccount($event)"></AddAccount>
+  <hr />
+  <p>Total des comptes actifs : {{ totalActifs }}</p>
+  <hr />
+  <p>Total des comptes inactifs : {{ totalInactifs }}</p>
 
   <ItemAccount
     v-for="acc in allAccounts"
     :account="acc"
+    :key="acc.name"
     @send-cand-to-delete="deleteAccount($event)"
   ></ItemAccount>
 </template>

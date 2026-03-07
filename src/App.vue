@@ -10,10 +10,10 @@ import Cv from './project/Cv.vue'
   <hr />
   <First></First> -->
   <div class="container">
-    <!--  <Cv></Cv>
-   <ExempleReact></ExempleReact>
-    <First></First> -->
-    <HomeAccount></HomeAccount>
+    <Cv></Cv>
+    <!-- <ExempleReact></ExempleReact>-->
+    <!-- <First></First> -->
+    <!-- <HomeAccount></HomeAccount> -->
   </div>
 </template>
 

@@ -1,9 +1,13 @@
 <script setup>
-defineProps(['account'])
+let props = defineProps(['account'])
 defineEmits(['sendCandToDelete'])
 function setRandomColor() {
   let cl = `#${Math.floor(Math.random() * 16777216).toString(16)}`
   return cl
+}
+
+function updateStatus(newStatus) {
+  props.account.status = newStatus
 }
 </script>
 <template>
@@ -12,9 +16,27 @@ function setRandomColor() {
     <p>Solde : {{ account.solde }}</p>
     <hr />
     <p>This account is {{ account.status }}</p>
-    <button class="btn btn-success">Set to 'active'</button>
-    <button class="btn btn-danger">Set to 'inactive'</button>
-    <button class="btn btn-info">Set to 'unknown'</button>
+    <button
+      :disabled="account.status == 'active'"
+      class="btn btn-success"
+      @click="updateStatus('active')"
+    >
+      Set to 'active'
+    </button>
+    <button
+      :disabled="account.status == 'inactive'"
+      class="btn btn-danger"
+      @click="updateStatus('inactive')"
+    >
+      Set to 'inactive'
+    </button>
+    <button
+      :disabled="account.status == 'unknown'"
+      class="btn btn-info"
+      @click="updateStatus('unknown')"
+    >
+      Set to 'unknown'
+    </button>
     <button @click="$emit('sendCandToDelete', account)" class="btn btn-dark">Delete account</button>
   </div>
 </template>

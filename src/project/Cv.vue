@@ -32,4 +32,5 @@ function recupererCandidat(cand) {
       <p v-else>Veuillez cliquer sur un candidat...</p>
     </div>
   </div>
+  
 </template>

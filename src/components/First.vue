@@ -33,10 +33,29 @@ let year = ref(2026)
 let m1 = computed(() => {
   return `Annee --- ${year.value}`
 })
+
+let txtColor = ref('blue')
+
+// let vChangeColor = (element, binding) => {
+//   element.style.color = binding.value
+// }
+let vChangeColor = {
+  mounted: (el, binding) => {
+    el.style.color = binding.value
+  },
+  updated: (el, binding) => {
+    el.style.color = 'grey'
+    el.style.backgroundColor = binding.value
+  },
+}
 </script>
 
 <template>
   <h4>Je suis le First Component</h4>
+
+  <hr />
+  <p v-changeColor="txtColor">Test de directive Personnlisé</p>
+  <button @click="txtColor = 'pink'" class="btn btn-primary">Change Color</button>
 
   <hr />
   <p>{{ message }}</p>
