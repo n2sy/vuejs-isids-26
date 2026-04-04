@@ -8,10 +8,15 @@ defineEmits(['eventToCv'])
   <ol class="list-group">
     <Item
       v-for="(cand, index) in allCandidates"
-      @eventToListe="$emit('eventToCv', $event)"
       :oneCandidate="cand"
     >
     </Item>
+    <!-- <Item
+      v-for="(cand, index) in allCandidates"
+      @eventToListe="$emit('eventToCv', $event)"
+      :oneCandidate="cand"
+    >
+    </Item> -->
 
     <!-- <Item @eventToListe="$emit('eventToCv', $event)" :oneCandidate="allCandidates[0]"></Item>
     <Item @eventToListe="$emit('eventToCv', $event)" :oneCandidate="allCandidates[1]"></Item>

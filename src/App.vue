@@ -1,8 +1,10 @@
 <script setup>
+import { RouterView } from 'vue-router'
 import HomeAccount from './components/accounts/HomeAccount.vue'
 import ExempleReact from './components/ExempleReact.vue'
 import First from './components/First.vue'
 import Cv from './project/Cv.vue'
+import Navbar from './components/Navbar.vue'
 </script>
 
 <template>
@@ -10,10 +12,12 @@ import Cv from './project/Cv.vue'
   <hr />
   <First></First> -->
   <div class="container">
-    <Cv></Cv>
+    <!-- <Cv></Cv> -->
     <!-- <ExempleReact></ExempleReact>-->
     <!-- <First></First> -->
     <!-- <HomeAccount></HomeAccount> -->
+    <Navbar></Navbar>
+    <RouterView></RouterView>
   </div>
 </template>
 
