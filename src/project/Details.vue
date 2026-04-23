@@ -1,9 +1,34 @@
 <script setup>
 // let props = defineProps(['selCandidate'])
 // console.log(props)
+import { useRouter } from 'vue-router'
+
 const selCandidate = defineModel({
   required: true,
 })
+
+let router = useRouter()
+
+console.log(selCandidate.value)
+function deleteCandidate() {
+  if (confirm('Etes vous sur de vouloir supprimer ce candidat ?')) {
+    fetch(`https://backendangulartrainingvercel.vercel.app/cv/candidats/${selCandidate._id}`, {
+      method: 'DELETE',
+      headers: {
+        Authorization: `bearer ${localStorage.getItem('token')}`,
+      },
+    })
+      .then((res) => {
+        alert('Candidat supprimé avec succés')
+        router.push('/')
+      })
+      .catch((err) => {
+        console.log(err)
+        alert("Vous n'avez pas les autorisations nécessaires pour ajouter un candidat.")
+        router.push('/')
+      })
+  }
+}
 </script>
 
 <template>
@@ -59,17 +84,7 @@ const selCandidate = defineModel({
           </div>
         </div>
         <div class="footer">
-          <div class="social-links text-center">
-            <a href="https://creative-tim.com" class="facebook"
-              ><i class="fa fa-facebook fa-fw"></i
-            ></a>
-            <a href="https://creative-tim.com" class="google"
-              ><i class="fa fa-google-plus fa-fw"></i
-            ></a>
-            <a href="https://creative-tim.com" class="twitter"
-              ><i class="fa fa-twitter fa-fw"></i
-            ></a>
-          </div>
+          <button class="btn btn-danger" @click="deleteCandidate()">Supprimer</button>
         </div>
       </div>
       <!-- end back panel -->

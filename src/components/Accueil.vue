@@ -16,7 +16,7 @@ function goToCv2() {
   <h3>Bienvenue à notre application VUe JS</h3>
 
   <p>Navigation côté Template</p>
-  <RouterLink to="" class="btn btn-primary">Go To Cv</RouterLink>
+  <RouterLink to="/cv" class="btn btn-primary">Go To Cv</RouterLink>
   <RouterLink :to="{ name: 'candidats' }" class="btn btn-success">Go To Cv</RouterLink>
   <p>Navigation côté Script</p>
   <RouterLink @click="goToCv()" class="btn btn-primary">Go To Cv</RouterLink>

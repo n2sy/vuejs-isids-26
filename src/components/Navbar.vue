@@ -9,6 +9,9 @@
       <RouterLink to="/cv" class="nav-link" active-class="active">Candidats</RouterLink>
     </li>
     <li class="nav-item">
+      <RouterLink to="/add" class="nav-link" active-class="active">Ajouter Candidat</RouterLink>
+    </li>
+    <li class="nav-item">
       <RouterLink to="/accounts" class="nav-link" active-class="active">Accounts</RouterLink>
     </li>
     <li class="nav-item">

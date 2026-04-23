@@ -6,11 +6,6 @@ import Infos from './components/Infos.vue'
 
 const myRoutes = [
   {
-    path: '/:pathMatch(.*)*',
-    name: 'notFound',
-    component: () => import('./components/NotFound.vue'),
-  },
-  {
     path: '/',
     name: 'pageAccueil',
     component: () => import('./components/Accueil.vue'),
@@ -29,6 +24,19 @@ const myRoutes = [
   {
     path: '/accounts',
     component: () => import('./components/accounts/HomeAccount.vue'),
+  },
+  {
+    path: '/add',
+    component: () => import('./project/AddCandidat.vue'),
+  },
+  {
+    path: '/login',
+    component: () => import('./project/Login.vue'),
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'notFound',
+    component: () => import('./components/NotFound.vue'),
   },
 ]
 
